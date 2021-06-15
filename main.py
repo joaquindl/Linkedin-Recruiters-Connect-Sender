@@ -1,19 +1,12 @@
 from selenium import webdriver
 from dotenv import load_dotenv
 import os
-import time
+from time import sleep
 from login_manager import LoginManager
 from remember_manager import RememberManager
 from search_manager import SearchManager
 from recruiter_manager import RecruiterManager
 from request_send import RequestSend
-
-
-def time_delay(sec):
-    delay = True
-    while delay:
-        time.sleep(sec)
-        delay = False
 
 
 load_dotenv(".env")
@@ -24,7 +17,7 @@ driver = webdriver.Chrome(chrome_driver_path)
 driver.get("https://www.linkedin.com/")
 
 # Login
-time_delay(5)
+sleep(5)
 login_manager = LoginManager(
     email=driver.find_element_by_id("session_key"),
     password=driver.find_element_by_id("session_password"),
@@ -51,10 +44,10 @@ search_manager = SearchManager(
                                                       ".search-results__cluster-bottom-banner a")
 )
 search_manager.search_input()
-time_delay(2)
+sleep(2)
 search_manager.select_category()
 
-time_delay(2)
+sleep(2)
 
 
 # Check if recruiter resides in Buenos Aires or in Argentina
@@ -67,7 +60,7 @@ for n in range(len(recruiter_manager.enabled_buttons)):
     if recruiter_manager.recruiter_location[n].text == "Argentina" or \
             recruiter_manager.recruiter_location[n].text == "Buenos Aires":
         recruiter_manager.enabled_buttons[n].click()
-        time_delay(4)
+        sleep(4)
         request_send = RequestSend(
             button=driver.find_element_by_css_selector(".artdeco-modal__actionbar .artdeco-button--primary")
         )
