@@ -2,7 +2,7 @@
 
 Simple script send multiple connection requests at once
 
-## Clone the repo
+## Clone repo
 
 ```
 git clone https://github.com/joaquindl/Linkedin-Recruiters-Connect-Sender.git
