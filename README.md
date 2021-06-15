@@ -10,6 +10,8 @@ git clone https://github.com/joaquindl/Linkedin-Recruiters-Connect-Sender.git
 
 ## Install packages
 
+For packages info check [selenium](https://selenium-python.readthedocs.io/) and [dotenv](https://pypi.org/project/python-dotenv/)
+
 ```python
 pip install selenium
 pip install python dot-env
