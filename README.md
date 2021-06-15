@@ -1,6 +1,6 @@
-# Easy Connect Request Sender
+# Easy Linkedin Connect Request Sender
 
-Simple script send multiple connection requests at once
+Simple script to send multiple connection requests at once
 
 ## Clone repo
 
